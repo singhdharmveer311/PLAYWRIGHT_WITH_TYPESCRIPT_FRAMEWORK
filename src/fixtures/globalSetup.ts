@@ -1,6 +1,6 @@
 import { FullConfig } from '@playwright/test';
-import { Logger } from '../src/utils/Logger';
-import ConfigManager from '../src/utils/ConfigManager';
+import { Logger } from '../utils/Logger';
+import ConfigManager from '../utils/ConfigManager';
 
 /**
  * Global setup that runs before all tests

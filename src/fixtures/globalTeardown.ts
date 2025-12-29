@@ -1,5 +1,5 @@
 import { FullConfig } from '@playwright/test';
-import { Logger } from '../src/utils/Logger';
+import { Logger } from '../utils/Logger';
 
 /**
  * Global teardown that runs after all tests
