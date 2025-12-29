@@ -77,14 +77,6 @@ export class TestHelper {
   }
 
   /**
-   * Get random email
-   */
-  static getRandomEmail(): string {
-    const randomString = Math.random().toString(36).substring(2, 15);
-    return `test_${randomString}@example.com`;
-  }
-
-  /**
    * Format date
    */
   static formatDate(date: Date, format = 'YYYY-MM-DD'): string {

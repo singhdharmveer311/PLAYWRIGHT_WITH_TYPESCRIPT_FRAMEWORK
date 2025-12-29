@@ -141,6 +141,9 @@ export class BasePage {
 
   /**
    * Wait for specific time (use sparingly, prefer waitForElement)
+   * This method should only be used when no other wait strategy is available.
+   * Prefer using waitForElement(), waitForLoadState(), or other explicit waits.
+   * @param milliseconds - Time to wait in milliseconds
    */
   async wait(milliseconds: number): Promise<void> {
     Logger.debug(`Waiting for ${milliseconds}ms`);

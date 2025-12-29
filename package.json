@@ -23,7 +23,7 @@
     "format": "prettier --write \"**/*.{ts,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,json,md}\"",
     "pretest": "npm run lint",
-    "clean": "rm -rf test-results playwright-report allure-results allure-report"
+    "clean": "rimraf test-results playwright-report allure-results allure-report logs"
   },
   "keywords": [
     "playwright",

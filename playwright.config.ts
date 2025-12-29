@@ -28,6 +28,7 @@ export default defineConfig({
     ['json', { outputFile: 'test-results/results.json' }],
     ['junit', { outputFile: 'test-results/junit.xml' }],
     ['list'],
+    // Allure reporter requires allure-playwright package
     ['allure-playwright', { outputFolder: 'allure-results' }]
   ],
   
