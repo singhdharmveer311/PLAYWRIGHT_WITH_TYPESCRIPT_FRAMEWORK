@@ -42,7 +42,7 @@ test.describe('Home Page Tests', () => {
     await homePage.clickDocs();
     
     // Verify URL changed
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('load');
     const url = page.url();
     expect(url).toContain('docs');
   });

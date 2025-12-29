@@ -32,7 +32,7 @@ export class TestHelper {
       await page.waitForURL(url);
     } else {
       Logger.debug('Waiting for navigation');
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('load');
     }
   }
 

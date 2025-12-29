@@ -4,7 +4,7 @@ import { Logger } from '../src/utils/Logger';
 /**
  * Global teardown that runs after all tests
  */
-async function globalTeardown(config: FullConfig) {
+async function globalTeardown(_config: FullConfig) {
   Logger.info('='.repeat(80));
   Logger.info('Starting Global Teardown');
   Logger.info('='.repeat(80));

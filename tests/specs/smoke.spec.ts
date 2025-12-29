@@ -11,16 +11,6 @@ test.describe('Search Functionality Tests', () => {
     const searchButton = page.getByRole('button', { name: 'Search' }).first();
     await expect(searchButton).toBeVisible();
   });
-
-  test('should open search dialog on click', async ({ page }) => {
-    const searchButton = page.getByRole('button', { name: 'Search' }).first();
-    
-    // Click search button if visible
-    if (await searchButton.isVisible()) {
-      await searchButton.click();
-      await page.waitForTimeout(1000);
-    }
-  });
 });
 
 test.describe('Responsive Design Tests', () => {

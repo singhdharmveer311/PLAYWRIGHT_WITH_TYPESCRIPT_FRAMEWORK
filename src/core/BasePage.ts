@@ -37,7 +37,7 @@ export class BasePage {
   async waitForPageLoad(): Promise<void> {
     Logger.debug('Waiting for page to load');
     await this.page.waitForLoadState('domcontentloaded');
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState('load');
   }
 
   /**
@@ -140,10 +140,11 @@ export class BasePage {
   }
 
   /**
-   * Wait for specific time
+   * Wait for specific time (use sparingly, prefer waitForElement)
    */
   async wait(milliseconds: number): Promise<void> {
     Logger.debug(`Waiting for ${milliseconds}ms`);
+    // eslint-disable-next-line playwright/no-wait-for-timeout
     await this.page.waitForTimeout(milliseconds);
   }
 }
