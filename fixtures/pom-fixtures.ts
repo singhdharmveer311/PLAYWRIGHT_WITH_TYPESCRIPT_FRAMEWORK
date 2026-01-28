@@ -1,6 +1,6 @@
 import { TodoPage } from "../pages/todo-page.ts";
 import { test as base } from "@playwright/test";
-import {LoginPage} from "../pages/LoginPage.spec.ts"
+import { LoginPage } from "../pages/LoginPage.spec.ts"
 
 
 
@@ -31,6 +31,8 @@ export const test = base.extend<myFixtures>({
 
         await loginpage.gotoOrangeHRM();
         await loginpage.loginOrangeHRM("admin", "admin123");
+
+        await use(loginpage);
     }
     
 });
