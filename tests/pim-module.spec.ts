@@ -19,5 +19,5 @@ test("Adding Employee Details", async({gotourl, pimPage, logout})=>{
     const empID = Math.floor(10000 + Math.random() * 90000).toString();
     await pimPage.fillEmployeeDetails("raj", "singh", empID);
     await expect(pimPage.successText).toBeVisible();
-    console.log("Adding PIM Employee successfull");
+    console.log("Adding PIM Employee successfulladfadsf");
 })
