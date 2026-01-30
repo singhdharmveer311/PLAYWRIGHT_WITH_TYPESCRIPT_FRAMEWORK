@@ -1,5 +1,19 @@
 // import { test, expect } from '../fixtures/pom-fixtures';
-import { test } from '../fixtures/common-fixtures';
+import { profile } from 'node:console';
+import { test } from '../fixtures/hooks-fixture';
+import { expect } from '@playwright/test';
+
+
+
+// test.beforeEach("Login before each test", async({page, loginPage, profile, commonUtils})=> {
+//     await loginPage.gotoOrangeHRM();
+//     console.log(await page.title());
+// });
+
+// test.afterEach("Logout after each test login", async({profile})=>{
+//     await profile.logout();
+// });
+
 // import { CommonUtils } from '../utils/CommonUtils';  // We can use the fixtures to get read of the imports
 
 
@@ -13,22 +27,32 @@ import { test } from '../fixtures/common-fixtures';
 
 
 
-// test("Temp test", async({todopage}) => {
-//     todopage.addToDo("xxx");
-//     todopage.removeAll();
+
+// test("Encrypted data test", async({commonUtils, loginPage})=> {
+//     const encryptedData = commonUtils.encryptData('Admin');
+//     console.log("this is:" + encryptedData);
+//     const decryptedUsername = commonUtils.decryptData(process.env.USERNAME!);
+//     const decryptedPassword = commonUtils.decryptData(process.env.PASSWORD!);
+
+
+//     await loginPage.gotoOrangeHRM();
+//     await loginPage.loginOrangeHRM(decryptedUsername, decryptedPassword);
+
 // });
 
-test("Encrypted data test", async({commonUtils})=> {
-    const encryptedData = commonUtils.encryptData('admin');
-    console.log(encryptedData)
-    const decryptedData = commonUtils.decryptData(encryptedData);
-    console.log(decryptedData);
 
-    // loginPage.gotoOrangeHRM();
-    // loginPage.loginOrangeHRM(encryptedData, )
-    
-    
+// test("Auth and re use test case", async({page, loginPage})=>{
+//     await loginPage.gotoOrangeHRM();
+//     console.log(await page.title());
+// });
 
-    // commonutils.decryptData('admin')
 
-});
+test(" Logout ", async({page, gotourl})=>{
+    await expect(page).toHaveTitle('OrangeHRM');
+})
+
+
+test(" Logout after this ", async({page, gotourl, logout})=>{
+    await expect(page).toHaveTitle('OrangeHRM');
+})
+

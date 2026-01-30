@@ -42,13 +42,24 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'SetupAuth',
+      testMatch: 'global-setup.spec.ts'
+    },
+
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['SetupAuth'],   // authentication setup reuse setup
+      use: { ...devices['Desktop Chrome'],
+            storageState: './.auth/user.json'
+       },
     },
 
     // {
     //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
+    //   dependencies: ['SetupAuth'],
+    //   use: { ...devices['Desktop Firefox'],
+    //      storageState: './playwright/.auth/user.json'
+    //  },
     // },
 
     // {
