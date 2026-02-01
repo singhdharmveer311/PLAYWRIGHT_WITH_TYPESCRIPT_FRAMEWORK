@@ -1,9 +1,8 @@
 import loginData from '../data/login-page-data.json';
 import {test} from "../fixtures/hooks-fixture";
 import { expect, Expect } from '@playwright/test';
-import { CommonUtils } from '../utils/CommonUtils';
 
-test.use(
+test.use(       // so that current test cases will not fail because of already logged in used in the storage state in the playwright.config.ts
     {
         storageState: {
             cookies: [],
