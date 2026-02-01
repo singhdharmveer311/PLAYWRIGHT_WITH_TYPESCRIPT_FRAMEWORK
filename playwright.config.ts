@@ -29,6 +29,13 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  
+  // My defined values there are 2 timeouts one for normal locator find ( 30 sec and one for the assertions ( default - 5s )
+  // timeout: 40000   -> Timeout for the  test. 
+  expect: {
+    timeout: 30000    // timeout for the expect assertions
+  },
+  
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
