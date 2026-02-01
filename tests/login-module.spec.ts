@@ -1,4 +1,4 @@
-import loginData from '../data/loginPageData.json';
+import loginData from '../data/login-page-data.json';
 import {test} from "../fixtures/hooks-fixture";
 import { expect, Expect } from '@playwright/test';
 import { CommonUtils } from '../utils/CommonUtils';
@@ -33,7 +33,7 @@ test("[Login-TC2] With Invalid Username", async({page, loginPage, commonUtils})=
 test("[Login-TC3] Login with valid credentials", async({loginPage, commonUtils})=>{
     const decryptedUsername = commonUtils.decryptData(process.env.USERNAME!);
     const decryptedPassword = commonUtils.decryptData(process.env.PASSWORD!);
-    
+
     await loginPage.gotoOrangeHRM();
     await loginPage.loginOrangeHRM(decryptedUsername, decryptedPassword);
     await expect(loginPage.dashboardPageText).toBeVisible();

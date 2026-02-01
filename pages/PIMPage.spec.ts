@@ -10,7 +10,7 @@ export class PIMPage{
     readonly saveBtn: Locator;
 
 
-    readonly successText: Locator;
+    readonly profileName: Locator;
     readonly pimHeading: Locator;
 
     constructor(page: Page){
@@ -23,7 +23,7 @@ export class PIMPage{
         this.lastNameInput = page.getByRole('textbox', { name: 'Last Name' });
         this.empIDInput = page.getByRole('textbox').nth(4);
         this.saveBtn = page.getByRole('button', { name: 'Save' });
-        this.successText = page.getByText('Successfully Saved');
+        this.profileName = page.locator('.orangehrm-edit-employee-name');
     }
 
 
@@ -31,7 +31,10 @@ export class PIMPage{
         await this.pimBoard.click();
     }
 
-    async fillEmployeeDetails(firstName: string, lastName: string, empID: string){
-       
+    async fillEmployeeDetails(firstName: string, lastName: string){
+        await this.addBtn.click();
+        await this.firstNameInput.fill(firstName);
+        await this.lastNameInput.fill(lastName);
+        await this.saveBtn.click();
     }
 }
