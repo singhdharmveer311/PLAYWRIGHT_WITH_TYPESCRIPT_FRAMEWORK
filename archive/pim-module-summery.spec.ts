@@ -64,13 +64,18 @@ test("Adding Employee Details", {
         await pimPage.goToPIM();
         // toBeVisible() - auto-retrying assertion, waits until element appears (up to expect.timeout)
         await expect(pimPage.pimHeading).toBeVisible();
+    });
 
-         // Data comes from pim-data.json -> keeps test data separate from test logic
+    await test.step("Fill employee details and save", async()=>{
+        // Data comes from pim-data.json -> keeps test data separate from test logic
         await pimPage.fillEmployeeDetails(pimData.first_name, pimData.last_name);
+    });
 
+    await test.step("Verify employee profile name", async()=>{
         // Template literal builds expected text: "firstName lastName"
         // toHaveText() - auto-retrying assertion, waits for text to match
         await expect(pimPage.profileName).toHaveText(`${pimData.first_name} ${pimData.last_name}`);
         console.log("Adding PIM Employee successfull");
-    })
+    });
+
 })

@@ -3,6 +3,7 @@ import { LoginPage } from "../pages/LoginPage.spec.ts"
 import { Dashboard } from "../pages/Dashboard.spec.ts";
 import { Profile } from "../pages/Profile.spec.ts"
 import { PIMPage } from "../pages/PIMPage.spec.ts";
+import { NavigationPanel } from "../pages/NavigationPanel.spec.ts";
 
 
 
@@ -11,6 +12,7 @@ type myFixtures = {
     dashboard: Dashboard;
     profile: Profile;
     pimPage: PIMPage;
+    navigationPanel: NavigationPanel;
 }
 
 export const test = base.extend<myFixtures>({
@@ -32,9 +34,15 @@ export const test = base.extend<myFixtures>({
         await use(profile);
     },
 
+    // PIM Page Fixture
     pimPage: async({page}, use)=>{
         const pimPage = new PIMPage(page);
         await use(pimPage);
+    },
+
+    // Navigation Panel fixture
+    navigationPanel: async({page}, use)=>{
+        await use(new NavigationPanel(page));
     }
 });
 
