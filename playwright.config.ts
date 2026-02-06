@@ -27,7 +27,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', {open: 'always'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   
   // My defined values there are 2 timeouts one for normal locator find ( 30 sec and one for the assertions ( default - 5s )
@@ -42,7 +42,11 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    // video: 'retain-on-failure',
+    video: {
+      mode: 'on',
+      size: { width: 1920, height: 1080 } // Full HD resolution
+    },
     trace: 'retain-on-failure',
   },
 
@@ -61,13 +65,13 @@ export default defineConfig({
        },
     },
 
-    // {
-    //   name: 'firefox',
-    //   dependencies: ['SetupAuth'],
-    //   use: { ...devices['Desktop Firefox'],
-    //      storageState: './playwright/.auth/user.json'
-    //  },
-    // },
+    {
+      name: 'firefox',
+      // dependencies: ['SetupAuth'],
+      use: { ...devices['Desktop Firefox']
+        //  storageState: './playwright/.auth/user.json'
+     },
+    },
 
     // {
     //   name: 'webkit',

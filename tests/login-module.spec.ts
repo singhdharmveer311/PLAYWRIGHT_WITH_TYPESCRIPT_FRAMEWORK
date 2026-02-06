@@ -78,18 +78,3 @@ test.describe("Visual testing with tag groping and annotation", {
 });
 
 
-// test.describe("Login Page - Data Driven Testing", ()=>{
-    
-//     test("Visaual testing with multiple data sets", {
-//         tag: ["@visual"],
-//         annotation: [
-//         {type: 'feature', description: 'visual testing module '}
-//         ]
-
-//     }, async({page, loginPage, commonUtils})=>{
-//         console.log("this is visual testing")
-
-//     })
-// });
-
-
