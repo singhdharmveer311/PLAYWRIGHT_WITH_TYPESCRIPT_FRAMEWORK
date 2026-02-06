@@ -1,9 +1,9 @@
 import { test as base } from "@playwright/test";
-import { LoginPage } from "../pages/LoginPage.spec.ts"
-import { Dashboard } from "../pages/Dashboard.spec.ts";
-import { Profile } from "../pages/Profile.spec.ts"
-import { PIMPage } from "../pages/PIMPage.spec.ts";
-import { NavigationPanel } from "../pages/NavigationPanel.spec.ts";
+import { LoginPage } from "../pages/LoginPage.ts"
+import { Dashboard } from "../pages/Dashboard.ts";
+import { Profile } from "../pages/Profile.ts"
+import { PIMPage } from "../pages/PIMPage.ts";
+import { NavigationPanel } from "../pages/NavigationPanel.ts";
 
 
 

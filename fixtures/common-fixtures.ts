@@ -9,6 +9,6 @@ type CommonFixtureType = {
 
 export const test = baseTest.extend<CommonFixtureType>({
     commonUtils : async({}, use)=>{
-        use(new CommonUtils());
+        await use(new CommonUtils());
     }
 });

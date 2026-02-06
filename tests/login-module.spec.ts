@@ -1,7 +1,6 @@
 import loginData from '../data/login-page-data.json';
 import {test} from "../fixtures/hooks-fixture";
 import { expect, Expect } from '@playwright/test';
-import { Dashboard } from '../pages/Dashboard.spec';
 
 
 // Tests that require fresh login (no pre-existing storage state)
@@ -57,24 +56,12 @@ test.describe("Visual testing with tag groping and annotation", {
             {type: 'feature', description: 'visual testing module'},
             {type: 'JIRA-ID', description: 'PLQA1'}
         ]
-    }, async({page, gotourl, loginPage, commonUtils, navigationPanel, logout})=>{
+    }, async({page, gotourl, loginPage, commonUtils, navigationPanel})=>{
 
     await loginPage.gotoOrangeHRM();
     await expect(loginPage.dashboardPageText).toBeVisible();
     await expect(navigationPanel.navigationPanelLoc).toHaveScreenshot();
     })
-
-    test("Visual testing - Dashboard Page", {
-        tag: ["@visual", "@regression"],
-        annotation: [
-            {type: 'feature', description: 'visual testing module'},
-            {type: 'JIRA-ID', description: 'PLQA1'}
-        ]
-    }, async({page, gotourl, loginPage, commonUtils, navigationPanel, logout})=>{
-        console.log(page.title);
-        await loginPage.gotoOrangeHRM();
-    })
-
 });
 
 
