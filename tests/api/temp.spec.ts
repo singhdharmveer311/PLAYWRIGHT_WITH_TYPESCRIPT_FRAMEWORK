@@ -90,3 +90,93 @@ test('PUT Update Booking', async({request})=>{
 })
 
 
+
+const API_BASE_URL = process.env.API_BASE_URL ?? 'https://restful-booker.herokuapp.com';
+const API_USERNAME = process.env.API_USERNAME ?? 'admin';
+const API_PASSWORD = process.env.API_PASSWORD ?? 'password123';
+
+function buildBasicAuthHeader(username: string, password: string): string {
+  return `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`;
+}
+
+const payload = {
+  firstname: 'James',
+  lastname: 'Brown',
+  totalprice: 222,
+  depositpaid: false,
+  bookingdates: {
+    checkin: '2026-02-20',
+    checkout: '2026-02-25',
+  },
+  additionalneeds: 'Lunch',
+};
+
+test('Basic Auth via httpCredentials', async () => {
+  const api = await request.newContext({
+    baseURL: API_BASE_URL,
+    httpCredentials: {
+      username: API_USERNAME,
+      password: API_PASSWORD,
+    },
+    extraHTTPHeaders: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+  });
+
+  const res = await api.put('/booking/1', { data: payload });
+
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toContain('application/json');
+
+  const body = await res.json();
+  expect(body).toMatchObject({
+    firstname: expect.any(String),
+    lastname: expect.any(String),
+    bookingdates: expect.any(Object),
+  });
+
+  await api.dispose();
+});
+
+test('Basic Auth via Authorization header', async () => {
+  const api = await request.newContext({
+    baseURL: API_BASE_URL,
+    extraHTTPHeaders: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: buildBasicAuthHeader(API_USERNAME, API_PASSWORD),
+    },
+  });
+
+  const res = await api.put('/booking/1', { data: payload });
+
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toContain('application/json');
+
+  const body = await res.json();
+  expect(body).toMatchObject({
+    firstname: expect.any(String),
+    lastname: expect.any(String),
+    bookingdates: expect.any(Object),
+  });
+
+  await api.dispose();
+});
+
+test('Basic Auth invalid credentials -> unauthorized', async () => {
+  const api = await request.newContext({
+    baseURL: API_BASE_URL,
+    extraHTTPHeaders: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: buildBasicAuthHeader(API_USERNAME, 'wrong_password'),
+    },
+  });
+
+  const res = await api.put('/booking/1', { data: payload });
+
+  expect([401, 403]).toContain(res.status());
+
+  await api.dispose();
+});

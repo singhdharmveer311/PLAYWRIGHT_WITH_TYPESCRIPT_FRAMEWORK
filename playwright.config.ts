@@ -39,6 +39,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
+    // baseURL: "https://restful-booker.herokuapp.com",  // Don't put extrahttp header / baseURL in the config because then it will be used in UI also and throw error 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     screenshot: 'only-on-failure',
@@ -72,6 +73,10 @@ export default defineConfig({
         //  storageState: './playwright/.auth/user.json'
      },
     },
+    {
+      name: 'apiTest', 
+      testDir: './tests/api'    // For the api we don't need the brwoser 
+    }
 
     // {
     //   name: 'webkit',
