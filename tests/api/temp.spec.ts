@@ -15,8 +15,10 @@ test.beforeAll(async({})=>{
 
 test('API Testing case 1 ', async({})=>{
     const reqContext = await request.newContext({
-        baseURL : process.env.API_BASE_URL. // from the enviroment file
+        baseURL : process.env.API_BASE_URL // from the enviroment file
     });
+
+    console.log(API_BASE_URL)
 
     const req = await reqContext.get("/booking");
     // console.log(await req.json());

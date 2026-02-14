@@ -1,0 +1,6 @@
+{
+  "playwright.env": {
+    "ENV_NAME": "dev",
+    "SECRET_KEY": "raj"
+  }
+}
