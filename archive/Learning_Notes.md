@@ -1,1 +1,4 @@
 To run it from the playwright extension create settings.json in the .vscode/settings.json folder and put your enviroment variable and secret keys their. -> Yeah extension by default pick nhi karta hai enviroment variable and all so. 
+
+npm run test_demo_api -> defined in the package.json 
+

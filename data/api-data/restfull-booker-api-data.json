@@ -1,5 +1,8 @@
 {
-    "firstname" : "James",
+    "content_type": "application/json; charset=utf-8",
+    "booking_id": "1",
+    
+    "firstname" : "Jim",
     "lastname" : "Brown",
     "totalprice" : 111,
     "depositpaid" : true,
