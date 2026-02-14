@@ -3,14 +3,14 @@
  *         carries all fixtures: page, loginPage, dashboard, profile, pimPage, gotourl, logout, commonUtils
  * expect - re-exported from @playwright/test via hooks-fixture, used for assertions
  */
-import {test, expect} from "../fixtures/hooks-fixture";
+import {test, expect} from "../../fixtures/hooks-fixture";
 
 /**
  * Importing test data from JSON file
  * JSON imports need "resolveJsonModule": true in tsconfig.json
  * This keeps test data separate from test logic (data-driven approach)
  */
-import pimData  from "../data/pim-data.json";
+import pimData  from "../../data/pim-data.json";
 
 
 /**

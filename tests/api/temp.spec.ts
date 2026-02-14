@@ -15,10 +15,8 @@ test.beforeAll(async({})=>{
 
 test('API Testing case 1 ', async({})=>{
     const reqContext = await request.newContext({
-        baseURL : "https://restful-booker.herokuapp.com"
+        baseURL : process.env.API_BASE_URL. // from the enviroment file
     });
-
-
 
     const req = await reqContext.get("/booking");
     // console.log(await req.json());
@@ -180,3 +178,4 @@ test('Basic Auth invalid credentials -> unauthorized', async () => {
 
   await api.dispose();
 });
+
