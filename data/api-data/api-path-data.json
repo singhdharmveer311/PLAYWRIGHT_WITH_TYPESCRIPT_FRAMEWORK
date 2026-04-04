@@ -1,3 +1,4 @@
 {
+    "auth_path": "/auth",
     "booking_path": "/booking"
 }

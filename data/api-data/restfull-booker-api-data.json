@@ -1,14 +1,15 @@
 {
-    "content_type": "application/json; charset=utf-8",
-    "booking_id": "1",
-    
-    "firstname" : "Jim",
-    "lastname" : "Brown",
-    "totalprice" : 111,
-    "depositpaid" : true,
-    "bookingdates" : {
-        "checkin" : "2018-01-01",
-        "checkout" : "2019-01-01"
+  "content_type": "application/json; charset=utf-8",
+  "booking_id": "134",
+  "create_booking_data": {
+    "firstname": "Dharmveer",
+    "lastname": "Singh",
+    "totalprice": 420,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-01-01",
+      "checkout": "2027-05-01"
     },
-    "additionalneeds" : "Breakfast"
+    "additionalneeds": "Breakfast"
+  }
 }
